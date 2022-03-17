@@ -1,17 +1,22 @@
 <template>
   <div id="app">
+    <NavBar/>
     <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+
+    <HelloWorld msg="Truong Gia Phuc"/>
+    <hr class="mt-2">
+    <TestComponent msg="Section 2"/>
   </div>
 </template>
 
 <script>
 import HelloWorld from './components/HelloWorld.vue'
-
+import TestComponent from './components/TestComponent.vue'
+import NavBar from "@/components/Navbar";
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    HelloWorld, TestComponent, NavBar
   }
 }
 </script>
