@@ -2,23 +2,35 @@
   <div id="app">
     <NavBar/>
     <img alt="Vue logo" src="./assets/logo.png">
-
-    <HelloWorld msg="Truong Gia Phuc"/>
-    <hr class="mt-2">
-    <TestComponent msg="Section 2"/>
+    <AllFriends :friends="friends"/>
+    <OnlineFriends :friends="friends"/>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-import TestComponent from './components/TestComponent.vue'
 import NavBar from "@/components/Navbar";
+import OnlineFriends from "@/components/OnlineFriends";
+import AllFriends from "@/components/AllFriends";
 export default {
   name: 'App',
   components: {
-    HelloWorld, TestComponent, NavBar
-  }
-}
+    NavBar,
+    OnlineFriends,
+    AllFriends
+  },
+  data()
+  {
+    return{
+      friends: [
+        {name: 'A', online: true},
+        {name: 'B', online: false},
+        {name: 'C', online: true},
+        {name: 'D', online: false},
+        {name: 'E', online: true},
+        {name: 'F', online: false},
+      ]
+    }
+  }}
 </script>
 
 <style>
