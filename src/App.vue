@@ -1,9 +1,9 @@
 <template>
   <div id="app">
     <NavBar/>
-    <img alt="Vue logo" src="./assets/logo.png">
-    <AllFriends :friends="friends" @delete="deleteFriend"/>
-    <OnlineFriends :friends="friends"/>
+<!--    <img alt="Vue logo" src="./assets/logo.png">-->
+<!--    <AllFriends :friends="friends" @delete="deleteFriend"/>-->
+<!--    <OnlineFriends :friends="friends"/>-->
     <Hook/>
   </div>
 </template>

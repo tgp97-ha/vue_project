@@ -40,5 +40,10 @@ nav li {
   display: inline-block;
   margin: 0;
   padding: 8px;
+  cursor: pointer;
+}
+
+span {
+  cursor: pointer;
 }
 </style>

@@ -1,21 +1,28 @@
 <template>
   <div>
-    <h1>
-      {{ title }}
-    </h1>
-    <br>
-    <button @click="changeTitle">Change</button>
+    <h1 class="font-weigh-bold"> Post</h1>
+    <div v-for="post in posts" :key="post.id">
+      <div class="row justify-content-center">
+        <div class="col-6">
+          <h2>{{post.title}}</h2>
+          <p>{{post.body}}</p>
+        </div>
+      </div>
+    </div>
+    <button @click="changeTitle">Click Me!!</button>
   </div>
 
 </template>
 
 <script>
+import axios from 'axios'
 export default {
   // eslint-disable-next-line vue/multi-word-component-names
   name: "Hook",
   data(){
     return {
-        title: 'Hook part'
+        title: 'Hook part',
+        posts: []
     }
   },
   methods:{
@@ -23,29 +30,19 @@ export default {
       this.title= 'New Title'
     }
   },
-  beforeCreate() {
-    alert('beforeCreate')
-  },
-  created() {
-    alert('created')
-  },
-  beforeMount() {
-    alert("beforeMount")
-  },
-  mounted() {
-    alert("mounted")
-  },
-  beforeUpdate() {
-    alert("beforeUpdate")
-  },
-  updated() {
-    alert("updated")
-  },
-
-
+  created(){
+    axios.get('https://jsonplaceholder.typicode.com/posts')
+    .then( response=>{
+      this.posts = response.data
+    })
+    .catch( error=> alert(error))
+  }
 }
 </script>
 
 <style scoped>
-
+  h1{
+    color: red;
+    text-align: center;
+  }
 </style>
