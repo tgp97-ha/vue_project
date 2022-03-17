@@ -2,8 +2,9 @@
   <div id="app">
     <NavBar/>
     <img alt="Vue logo" src="./assets/logo.png">
-    <AllFriends :friends="friends"/>
+    <AllFriends :friends="friends" @delete="deleteFriend"/>
     <OnlineFriends :friends="friends"/>
+    <Hook/>
   </div>
 </template>
 
@@ -11,26 +12,36 @@
 import NavBar from "@/components/Navbar";
 import OnlineFriends from "@/components/OnlineFriends";
 import AllFriends from "@/components/AllFriends";
+import Hook from "@/components/Hook";
 export default {
   name: 'App',
   components: {
     NavBar,
     OnlineFriends,
-    AllFriends
+    AllFriends,
+    Hook
   },
   data()
   {
     return{
       friends: [
-        {name: 'A', online: true},
-        {name: 'B', online: false},
-        {name: 'C', online: true},
-        {name: 'D', online: false},
-        {name: 'E', online: true},
-        {name: 'F', online: false},
+        {name: 'ADFDFDSFAF', online: true},
+        {name: 'BDSAFADSFD', online: false},
+        {name: 'CBKLLKNV', online: true},
+        {name: 'DTREPJNKV', online: false},
+        {name: 'ERJFRNDKLFN', online: true},
+        {name: 'FFREOPJFDNKALFN', online: false},
       ]
     }
-  }}
+  },
+  methods : {
+    deleteFriend(payload){
+      this.friends = this.friends.filter(friend=>{
+        return friend.name!=payload.name
+      })
+    }
+  }
+  }
 </script>
 
 <style>
